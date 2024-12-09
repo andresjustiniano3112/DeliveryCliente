@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.deliverycliente.ui.fragments.LoginFragment"
+        android:label="Inicio de Sesión"
+        tools:layout="@layout/fragment_login">
+        <!-- Acción hacia el registro -->
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+    </fragment>
+
+    <!-- Register Fragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.deliverycliente.ui.fragments.RegisterFragment"
+        android:label="Registro"
+        tools:layout="@layout/fragment_register">
+        <!-- Acción hacia el login -->
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Main Fragment -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.deliverycliente.ui.fragments.MainFragment"
+        android:label="Principal"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="com.example.deliverycliente.ui.fragments.RestaurantsFragment"
+        android:label="Restaurantes"
+        tools:layout="@layout/fragment_restaurants">
+        <action
+            android:id="@+id/action_restaurantsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantDetailsFragment"
+        android:name="com.example.deliverycliente.ui.fragments.RestaurantDetailsFragment"
+        android:label="Detalles del Restaurante"
+        tools:layout="@layout/fragment_restaurant_details" >
+        <action
+        android:id="@+id/action_restaurantDetailsFragment_to_cartFragment"
+        app:destination="@id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.deliverycliente.ui.fragments.CartFragment"
+        android:label="Carrito de Compras" />
+
+    <!-- Fragmento de Pedidos -->
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.deliverycliente.ui.fragments.OrdersFragment"
+        android:label="Lista de Pedidos">
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.deliverycliente.ui.fragments.OrderDetailsFragment"
+        android:label="Detalles del Pedido" >
+    </fragment>
+
+
+
+
+</navigation>
